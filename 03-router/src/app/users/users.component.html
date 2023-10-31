@@ -1,0 +1,13 @@
+<p>users works!</p>
+
+<a [routerLink]="'1'" [routerLinkActive]="'activated-route'">first</a>
+<a [routerLink]="['2']">second</a>
+
+<a [routerLink]="['..']">back</a>
+<a [routerLink]="['/']">home</a>
+
+<a [routerLink]="['/', 'login']">login</a>
+-----
+<router-outlet></router-outlet>
+-----
+<pre>{{users | json}}</pre>
