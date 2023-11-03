@@ -1,0 +1,7 @@
+<div *ngIf="authService.isAuthenticated && authService.userInfo; else notAuthTemplate">
+    <div>Well done doing authentication!</div>
+    <p>Your Id {{authService.userInfo.id}}</p>
+    <p>Your Username {{authService.userInfo.username}}</p>
+</div>
+
+<ng-template #notAuthTemplate>You are anonym, loser!</ng-template>

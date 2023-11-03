@@ -1,0 +1,9 @@
+<app-login class="component-boundary"
+    [isAuth]="isAuthenticated"
+    (auth)="auth()"
+></app-login>
+
+<app-user-info class="component-boundary" 
+    [isAuthenticated]="isAuthenticated"
+    [userInfo]="userInfo"
+></app-user-info>

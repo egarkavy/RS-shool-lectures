@@ -1,0 +1,5 @@
+<div *ngIf="!isAuthenticated; else authTemplate">
+    Want to login? <button (click)="auth()">Login</button>
+</div>
+
+<ng-template #authTemplate>Cool, you are in!</ng-template>
