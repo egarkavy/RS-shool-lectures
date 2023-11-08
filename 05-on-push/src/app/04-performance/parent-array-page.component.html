@@ -1,0 +1,8 @@
+<button (click)="changeFirstUser()">Change first user</button>
+
+<app-first-child-array-page 
+    *ngFor="let user of users"
+    [user]="user"
+>
+
+</app-first-child-array-page>

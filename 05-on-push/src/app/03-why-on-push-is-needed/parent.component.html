@@ -1,0 +1,15 @@
+<app-left-child
+    [leftInput]="left"
+>
+</app-left-child>
+
+<button (click)="changeLeftUsername()">Change left username</button>
+<button (click)="changeLeftId()">Change left id</button>
+
+<div>----</div>
+
+<app-right-child
+    [rightInput]="right"
+></app-right-child>
+
+<button (click)="changeRight()">Change right</button>

@@ -1,0 +1,9 @@
+<p>Username: {{user?.username}}</p>
+<div class="friends">Friends: 
+    <app-second-child-array-page
+        *ngFor="let friend of (user?.friends) || []"
+        [friend]="friend"
+    >
+
+    </app-second-child-array-page>
+</div>
