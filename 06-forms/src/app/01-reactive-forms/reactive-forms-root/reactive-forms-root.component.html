@@ -1,0 +1,51 @@
+<form [formGroup]="singUpForm" (ngSubmit)="login()">
+    <input [formControl]="emailControl" >
+    
+    <div [formGroupName]="'password'">
+        <input type="password" [formControl]="passwordControl">
+        <input type="password" formControlName="repeatPassword">
+
+        <span *ngIf="singUpForm.controls.password.invalid">
+            {{singUpForm.controls.password.errors | json}}
+        </span>
+    </div>
+
+    <input formControlName="name">
+
+    <p>
+        Your fav fruits
+    </p>
+
+    <div [formGroupName]="'fruits'">
+        <div *ngFor="let fruitControl of singUpForm.controls.fruits.controls" >
+            <input [class.invalid]="fruitControl.touched && fruitControl.invalid" [formControl]="fruitControl" />
+        </div>
+    </div>
+
+    <app-field>
+        <input [formControl]="emailControl">
+        <app-error *ngIf="emailControl.errors?.['required']">asddsa</app-error>
+    </app-field>
+
+    <div>
+        <button (click)="addFruit()">Add new fav</button>
+    </div>
+    
+
+    <button>
+        Log in
+    </button>
+    <button type="reset">
+        Reset
+    </button>
+</form>
+
+<button (click)="randomEmail()">
+    Randomize
+</button>
+
+<pre>
+    {{singUpForm.value | json}}
+    <div></div>
+    <!-- {{passwordControl.value}} -->
+</pre>

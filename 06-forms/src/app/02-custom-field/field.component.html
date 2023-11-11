@@ -1,0 +1,16 @@
+<span>My Field</span>
+
+<div [class.invalid]="showError">
+    <ng-content>
+
+    </ng-content>
+</div>
+
+
+<div *ngIf="showError">
+    <ng-content select="app-error"></ng-content>
+</div>
+
+<pre>
+    {{control?.valid}}
+</pre>
