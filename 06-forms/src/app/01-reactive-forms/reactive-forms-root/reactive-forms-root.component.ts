@@ -35,7 +35,11 @@ export class ReactiveFormsRootComponent implements OnInit {
   public emailSource$ = new BehaviorSubject<string>('');
 
   public singUpForm = new FormGroup({
-    email: new FormControl<string>('', { nonNullable: true, validators: [Validators.email, Validators.required] }),
+    email: new FormControl<string>('', { nonNullable: true, validators: [
+      CustomValidators.withMessageValidator('Email should be valid', Validators.email), 
+      CustomValidators.withMessageValidator('Email is required', Validators.required),
+      CustomValidators.withMessageValidator('Email must be at least 10 characters long', Validators.minLength(10))
+    ]}),
     password: new FormGroup({
       password: new FormControl<string>('', [Validators.required]),
       repeatPassword: new FormControl<string>('', [Validators.required]),

@@ -1,4 +1,4 @@
-import { AbstractControl, FormControl, ValidationErrors } from "@angular/forms"
+import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from "@angular/forms"
 
 export class CustomValidators {
     public static customRequired(control: AbstractControl<string>): ValidationErrors | null {
@@ -13,5 +13,22 @@ export class CustomValidators {
         const areEqual = control.value.password === control.value.repeatPassword;
 
         return areEqual ? null : { areEqual: true }
+    }
+
+    public static withMessageValidator(message: string, validator: ValidatorFn): ValidatorFn {
+        return (control: AbstractControl) => {
+            const validationResult = validator(control);
+
+            if (validationResult === null) {
+                return null;
+            }
+            
+            return {
+                [Object.keys(validationResult)[0]]: {
+                    ...validationResult,
+                    message
+                }
+            };
+        }
     }
 }

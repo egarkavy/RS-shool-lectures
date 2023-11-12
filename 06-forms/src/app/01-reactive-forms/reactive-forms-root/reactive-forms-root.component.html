@@ -24,8 +24,13 @@
 
     <app-field>
         <input [formControl]="emailControl">
-        <app-error *ngIf="emailControl.errors?.['required']">asddsa</app-error>
+        <app-error *ngIf="emailControl.errors?.['required']">{{emailControl.errors?.['required'].message}}</app-error>
+        <app-error *ngIf="emailControl.errors?.['email']">{{emailControl.errors?.['email'].message}}</app-error>
     </app-field>
+
+    <pre>
+        {{emailControl.errors | json}} 
+    </pre>
 
     <div>
         <button (click)="addFruit()">Add new fav</button>
