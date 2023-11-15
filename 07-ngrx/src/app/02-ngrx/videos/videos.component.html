@@ -1,0 +1,7 @@
+<div>
+    <button (click)="requestVideos()">Get videos</button>
+</div>
+
+<pre>
+    {{ videos$ | async | json }}
+</pre>

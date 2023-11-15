@@ -1,0 +1,7 @@
+<div>
+    <button (click)="requestVideos()">Get videos</button>
+</div>
+
+<div *ngFor="let video of videos$ | async">
+    {{video.id}} {{video.name}}
+</div>
